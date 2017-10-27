@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1493880740 source:c:\documents and settings\administrator\desktop\eg1\eg1\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
