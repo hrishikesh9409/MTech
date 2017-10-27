@@ -1,0 +1,32 @@
+# Imports
+
+- CreateDirectoryW
+- CreateFileW
+- FindFirstFileW
+- FindNextFileW
+- GetCurrentProcess
+- GetCurrentThread
+- GetProcessHeap
+- OpenProcess
+- ReadFile
+- WriteFile
+- RegisterClassExW
+- RegisterHotKey
+- SetWindowTextW
+- SetWindowsHookExW
+- GetStockObject
+- ShellExecuteW
+- RegCloseKey
+- RegOpenKeyExW
+- RegQueryValueExW
+- RegSetValueExW
+- RegDeleteValueW
+- ShowWindow
+
+# Exports
+- LowLevelKeyboardProc
+- LowLevelMouseProc
+
+# String
+
+- Software\Microsoft\Windows\CurrentVersion\Run
