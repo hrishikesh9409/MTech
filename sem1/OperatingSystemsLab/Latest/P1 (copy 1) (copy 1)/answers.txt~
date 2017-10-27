@@ -1,0 +1,103 @@
+Script started on Friday 16 October 2015 06:00:01 PM IST
+]0;vivek@vivek-26: ~/Desktop/p1/new/P1vivek@vivek-26:~/Desktop/p1/new/P1$ make P1
+make: `P1' is up to date.
+]0;vivek@vivek-26: ~/Desktop/p1/new/P1vivek@vivek-26:~/Desktop/p1/new/P1$ ./P1
+The shell has only the following cmds:
+	quit	
+	mkdisk	s
+	fddisk	
+	rddisk	u
+	wrdisk	us
+	echo	ssss
+	mkfs	s
+	findfs	
+	inode	u
+	q	
+Start with ! to invoke a Unix shell cmd
+sh350% mkdisk D1
+cmd [mkdisk D1]
+simDisk 130b030 = new SimDisk(D1, 128, 512)
+mkSimDisk() == 19968048
+sh350% mkfs D1
+cmd [mkfs D1]
+makefs(20, 3) == 0x130b050x
+sh350% inode 1
+cmd [inode 1]
+inode #1 == [ 0:4 1:0 size=13]
+sh350% mkdisk D2
+cmd [mkdisk D2]
+simDisk 130b030 = new SimDisk(D2, 1024, 1024)
+mkSimDisk() == 19968048
+sh350% mkfs D2
+cmd [mkfs D2]
+makefs(100, 6) == 0x130b050x
+sh350% inode 2
+cmd [inode 2]
+inode #2 == [ 0:0 1:0 2:0 3:0 4:0 size=0]
+sh350% mkdisk D3
+cmd [mkdisk D3]
+simDisk 130b030 = new SimDisk(D3, 64, 128)
+mkSimDisk() == 19968048
+sh350% mkfs D3
+cmd [mkfs D3]
+makefs(16, 4) == 0x130b050x
+sh350% inode 3
+cmd [inode 3]
+inode #3 == [ 0:0 1:0 2:0 size=0]
+sh350% ls - lisa
+cmd [ls - lisa]
+The shell has only the following cmds:
+	quit	
+	mkdisk	s
+	fddisk	
+	rddisk	u
+	wrdisk	us
+	echo	ssss
+	mkfs	s
+	findfs	
+	inode	u
+	q	
+Start with ! to invoke a Unix shell cmd
+sh350% !ls -  lisa
+cmd [!ls -lisa]
+total 1432
+7213452    4 drwx------ 2 vivek vivek    4096 Oct 16 18:00 .
+7213451    4 drwxrwxr-x 3 vivek vivek    4096 Oct 16 14:17 ..
+7213476    4 -rwxr-xr-x 1 vivek vivek      64 Oct 16 13:50 4.dsk
+7213484    0 -rw-rw-r-- 1 vivek vivek       0 Oct 16 18:00 answers.txt
+7213474    4 -rw-r--r-- 1 vivek vivek    2742 Jan 13  2015 bitVector.C
+7213454   16 -rw-rw-r-- 1 vivek vivek   15952 Oct 16 14:30 bitVector.o
+7213463   64 -rw-r--r-- 1 vivek vivek   65536 Oct 16 18:00 D1.dsk
+7213481 1024 -rwxr-xr-x 1 vivek vivek 1048576 Oct 16 18:01 D2.dsk
+7213477    8 -rwxr-xr-x 1 vivek vivek    8192 Oct 16 18:01 D3.dsk
+7213473    4 -rw-r--r-- 1 vivek vivek     592 Jan 13  2015 directory.C
+7213455   16 -rw-rw-r-- 1 vivek vivek   14376 Oct 16 14:30 directory.o
+7213470    4 -rw-r--r-- 1 vivek vivek      11 Jan 13  2015 diskParams.dat
+7213475    4 -rw-rw-r-- 1 vivek vivek      57 Oct 15 17:58 diskParams.txt
+7213472    8 -rw-r--r-- 1 vivek vivek    4299 Jan 13  2015 file.C
+7213456   20 -rw-rw-r-- 1 vivek vivek   19080 Oct 16 14:30 file.o
+7213480    8 -rw-r--r-- 1 vivek vivek    4944 Oct 16 14:29 fstypes.h
+7213478    8 -rw-r--r-- 1 vivek vivek    4879 Oct 16 14:26 fstypes.h~
+7213461    8 -rw-r--r-- 1 vivek vivek    6165 Jan 13  2015 iNodes.C
+7213457   24 -rw-rw-r-- 1 vivek vivek   22288 Oct 16 14:30 iNodes.o
+7213482    4 -rw-r--r-- 1 vivek vivek     766 Oct 16 14:18 Makefile
+7213471    4 -rw-r--r-- 1 vivek vivek     766 Jan 13  2015 Makefile~
+7213467   76 -rwxrwxr-x 1 vivek vivek   76888 Oct 16 17:59 P1
+7213462    4 -rw-r--r-- 1 vivek vivek    1451 Jan 13  2015 ReadMe.txt
+7213468    8 -rw-r--r-- 1 vivek vivek    7225 Oct 16 15:49 shell.C
+7213483    8 -rw-r--r-- 1 vivek vivek    7225 Oct 16 15:48 shell.C~
+7213459   44 -rw-rw-r-- 1 vivek vivek   43232 Oct 16 17:59 shell.o
+7213466    4 -rw-r--r-- 1 vivek vivek    3105 Sep 21 00:28 simDisk.C
+7213469    4 -rw-r--r-- 1 vivek vivek    3117 Sep 21 00:28 simDisk.C~
+7213453   20 -rw-rw-r-- 1 vivek vivek   19920 Oct 16 14:30 simDisk.o
+7213460    4 -rw-r--r-- 1 vivek vivek    2078 Sep 21 00:28 volume.C
+7213465    4 -rw-r--r-- 1 vivek vivek    2090 Sep 21 00:28 volume.C~
+7213458   16 -rw-rw-r-- 1 vivek vivek   15736 Oct 16 14:30 volume.o
+sh350% !ls -lisa > ./ReadMe.txt
+cmd [!ls -lisa > ./ReadMe.txt]
+sh350% q
+cmd [q]
+]0;vivek@vivek-26: ~/Desktop/p1/new/P1vivek@vivek-26:~/Desktop/p1/new/P1$ exit
+exit
+
+Script done on Friday 16 October 2015 06:04:38 PM IST

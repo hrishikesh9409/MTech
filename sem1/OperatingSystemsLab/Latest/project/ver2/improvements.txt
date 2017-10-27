@@ -1,0 +1,15 @@
+Changes are made in the following files :
+
+1. fstypes.h - new class DiskInfo that contains the various variables the label of the disk, disk sectors, number of bytes
+
+	Usage of a new class reduces redundancy and reduces size of the object file
+
+2. shell.C - modifications to the command table to take proper string and integer input along with the variable commands and the function to  and added checks to check if the disks are properly initialized, inodes contain proper values, return values are properly pointed to null where needed
+
+3. simDisk.C - modication of used variables of the disk using proper dot operator and usage of the this pointer whereever necessary
+
+4. Made new functionality to create file - crfile 
+
+5. Validation of file names 
+
+6. Half way through the implementation of list command ls 

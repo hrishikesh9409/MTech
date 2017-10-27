@@ -1,0 +1,180 @@
+1. Using flawfinder to analyse source code for 3 C programs :
+
+
+Flawfinder works by using a built-in database of C/C++ functions with well-known problems, such as buffer overflow risks (e.g., strcpy(), strcat(), gets(), sprintf(), and the scanf() family), format string problems ([v][f]printf(), [v]snprintf(), and syslog()), race conditions (such as access(), chown(), chgrp(), chmod(), tmpfile(), tmpnam(), tempnam(), and mktemp()), potential shell metacharacter dangers (most of the exec() family, system(), popen()), and poor random number acquisition (such as random()). 
+
+
+
+Program 1 :
+
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    FILE *fptr;
+    char name[20];
+    int age;
+    float salary;
+ 
+    /*  open for writing */
+    fptr = fopen("emp.rec", "w");
+ 
+    if (fptr == NULL)
+    {
+        printf("File does not exists \n");
+        exit(0);
+    }
+    printf("Enter the name \n");
+    scanf("%s", name);
+    fprintf(fptr, "Name    = %s\n", name);
+    printf("Enter the age\n");
+    scanf("%d", &age);
+    fprintf(fptr, "Age     = %d\n", age);
+    printf("Enter the salary\n");
+    scanf("%f", &salary);
+    fprintf(fptr, "Salary  = %.2f\n", salary);
+    fclose(fptr);
+
+    return 0;
+}
+
+
+Flawfinder analysis :
+
+FINAL RESULTS:
+
+source_analysis/1.c:24:  [4] (buffer) scanf:
+  The scanf() family's %s operation, without a limit specification, permits
+  buffer overflows (CWE-120, CWE-20). Specify a limit to %s, or use a
+  different input function.
+source_analysis/1.c:11:  [2] (buffer) char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:CWE-120). Perform bounds checking, use
+  functions that limit length, or ensure that the size is larger than the
+  maximum possible length.
+source_analysis/1.c:16:  [2] (misc) fopen:
+  Check when opening files - can an attacker redirect it (via symlinks),
+  force the opening of special file type (e.g., device files), move things
+  around to create a race condition, control its ancestors, or change its
+  contents? (CWE-362).
+
+ANALYSIS SUMMARY:
+
+Hits = 3
+Lines analyzed = 34 in approximately 0.01 seconds (5024 lines/second)
+Physical Source Lines of Code (SLOC) = 26
+Hits@level = [0]   0 [1]   0 [2]   2 [3]   0 [4]   1 [5]   0
+Hits@level+ = [0+]   3 [1+]   3 [2+]   3 [3+]   1 [4+]   1 [5+]   0
+Hits/KSLOC@level+ = [0+] 115.385 [1+] 115.385 [2+] 115.385 [3+] 38.4615 [4+] 38.4615 [5+]   0
+Minimum risk level = 1
+
+
+Program 2 :
+
+#include  <stdio.h>
+#include  <string.h>
+#include  <stdlib.h>
+
+int main (int argc, char **argv)
+{
+	char buf [100];
+	int x = 1 ; 
+	snprintf ( buf, sizeof buf, argv [1] ) ;
+	buf [ sizeof buf -1 ] = 0;
+	printf ( “Buffer size is: (%d) \nData input: %s \n” , strlen (buf) , buf ) ;
+	printf ( “X equals: %d/ in hex: %#x\nMemory address for x: (%p) \n” , x, x, &x) ;
+	return 0 ;
+}
+
+
+Flawfinder analysis :
+
+FINAL RESULTS:
+
+source_analysis/2.c:9:  [4] (format) snprintf:
+  If format strings can be influenced by an attacker, they can be exploited,
+  and note that sprintf variations do not always \0-terminate (CWE-134). Use
+  a constant for the format specification.
+source_analysis/2.c:11:  [4] (format) printf:
+  If format strings can be influenced by an attacker, they can be exploited
+  (CWE-134). Use a constant for the format specification.
+source_analysis/2.c:12:  [4] (format) printf:
+  If format strings can be influenced by an attacker, they can be exploited
+  (CWE-134). Use a constant for the format specification.
+source_analysis/2.c:7:  [2] (buffer) char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:CWE-120). Perform bounds checking, use
+  functions that limit length, or ensure that the size is larger than the
+  maximum possible length.
+source_analysis/2.c:11:  [1] (buffer) strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (CWE-126).
+
+ANALYSIS SUMMARY:
+
+Hits = 5
+Lines analyzed = 13 in approximately 0.01 seconds (2017 lines/second)
+Physical Source Lines of Code (SLOC) = 13
+Hits@level = [0]   0 [1]   1 [2]   1 [3]   0 [4]   3 [5]   0
+Hits@level+ = [0+]   5 [1+]   5 [2+]   4 [3+]   3 [4+]   3 [5+]   0
+Hits/KSLOC@level+ = [0+] 384.615 [1+] 384.615 [2+] 307.692 [3+] 230.769 [4+] 230.769 [5+]   0
+Minimum risk level = 1
+
+
+
+Program 3 :
+
+#include <stdio.h>
+#include <string.h>
+
+int main ()
+{
+   char command[50];
+
+   strcpy( command, "ls -l" );
+   system(command);
+
+   return(0);
+} 
+
+
+Flawfinder Analysis :
+
+FINAL RESULTS:
+
+source_analysis/3.c:9:  [4] (shell) system:
+  This causes a new program to execute and is difficult to use safely
+  (CWE-78). try using a library call that implements the same functionality
+  if available.
+source_analysis/3.c:6:  [2] (buffer) char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:CWE-120). Perform bounds checking, use
+  functions that limit length, or ensure that the size is larger than the
+  maximum possible length.
+source_analysis/3.c:8:  [2] (buffer) strcpy:
+  Does not check for buffer overflows when copying to destination (CWE-120).
+  Consider using strcpy_s, strncpy, or strlcpy (warning, strncpy is easily
+  misused). Risk is low because the source is a constant string.
+
+ANALYSIS SUMMARY:
+
+Hits = 3
+Lines analyzed = 12 in approximately 0.01 seconds (2042 lines/second)
+Physical Source Lines of Code (SLOC) = 9
+Hits@level = [0]   0 [1]   0 [2]   2 [3]   0 [4]   1 [5]   0
+Hits@level+ = [0+]   3 [1+]   3 [2+]   3 [3+]   1 [4+]   1 [5+]   0
+Hits/KSLOC@level+ = [0+] 333.333 [1+] 333.333 [2+] 333.333 [3+] 111.111 [4+] 111.111 [5+]   0
+Minimum risk level = 1
+
+
+
+
+
+
+
+
+
+
+
+

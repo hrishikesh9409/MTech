@@ -1,0 +1,88 @@
+Script started on Thu 17 Nov 2016 09:09:51 PM IST
+]0;hrishi@hrishi:/home/hrishi/work/P1 (copy 1) (copy 1)[01;32m[hrishi@hrishi[01;37m P1 (copy 1) (copy 1)[01;32m]$[00m ./P1
+The shell has only the following cmds:
+	quit	
+	mkdisk	s
+	fddisk	s
+	rddisk	u
+	wrdisk	us
+	echo	ssss
+	mkfs	s
+	findfs	
+	inode	u
+	q	
+Start with ! to invoke a Unix shell cmd
+sh350% mkdisk D1
+cmd [mkdisk D1]
+simDisk ea8460 = new SimDisk(D1, 128, 512)
+mkSimDisk() == 15369312
+sh350% fddisk D1
+cmd [fddisk D1]
+simDisk ea8460 = new SimDisk(D1, 128, 512)
+mkSimDisk() == 15369312
+sh350% mkfs D1
+cmd [mkfs D1]
+makefs(20, 3) == 0xea8480x
+sh350% findfs D1
+cmd [findfs D1]
+findfs() == 0xea8480x
+sh350% inode 4
+cmd [inode 4]
+inode #4 == [ 0:0 1:0 size=0]
+sh350% inode 1
+cmd [inode 1]
+inode #1 == [ 0:4 1:0 size=13]
+sh350% mkdisk D2
+cmd [mkdisk D2]
+simDisk ea8460 = new SimDisk(D2, 1024, 256)
+mkSimDisk() == 15369312
+sh350% fddisk D2
+cmd [fddisk D2]
+simDisk ea8460 = new SimDisk(D2, 1024, 256)
+mkSimDisk() == 15369312
+sh350% mkfs D2
+cmd [mkfs D2]
+makefs(100, 8) == 0xea8480x
+sh350% findfs D2
+cmd [findfs D2]
+findfs() == 0xea8480x
+sh350% inode 3
+cmd [inode 3]
+inode #3 == [ 0:0 1:0 2:0 3:0 4:0 5:0 6:0 size=0]
+sh350% mkdisk D3
+cmd [mkdisk D3]
+simDisk ea8460 = new SimDisk(D3, 64, 128)
+mkSimDisk() == 15369312
+sh350% fddisk D3
+cmd [fddisk D3]
+simDisk ea8460 = new SimDisk(D3, 64, 128)
+mkSimDisk() == 15369312
+sh350% mkfs D3
+cmd [mkfs D3]
+makefs(16, 4) == 0xea8480x
+sh350% fddisk       indfs D3
+cmd [findfs D3]
+findfs() == 0xea8480x
+sh350% inode 3
+cmd [inode 3]
+inode #3 == [ 0:0 1:0 2:0 size=0]
+sh350% exit
+cmd [exit]
+The shell has only the following cmds:
+	quit	
+	mkdisk	s
+	fddisk	s
+	rddisk	u
+	wrdisk	us
+	echo	ssss
+	mkfs	s
+	findfs	
+	inode	u
+	q	
+Start with ! to invoke a Unix shell cmd
+sh350% q
+cmd [q]
+]0;hrishi@hrishi:/home/hrishi/work/P1 (copy 1) (copy 1)[01;32m[hrishi@hrishi[01;37m P1 (copy 1) (copy 1)[01;32m]$[00m ^C
+]0;hrishi@hrishi:/home/hrishi/work/P1 (copy 1) (copy 1)[01;32m[hrishi@hrishi[01;37m P1 (copy 1) (copy 1)[01;32m]$[00m exit
+
+Script done on Thu 17 Nov 2016 09:14:05 PM IST

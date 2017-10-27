@@ -1,0 +1,61 @@
+Script started on Wednesday 07 December 2016 10:52:29 PM IST
+]0;hrishi@hrishi: ~/work/mtech/OperatingSystemsLab/Latest/project/ver2/P1hrishi@hrishi:~/work/mtech/OperatingSystemsLab/Latest/project/ver2/P1$ ./P1
+The shell has only the following cmds:
+	quit	
+	mkdisk	s
+	fddisk	s
+	rddisk	u
+	wrdisk	us
+	echo	ssss
+	mkfs	s
+	findfs	s
+	inode	u
+	crfile	s
+	ls	
+	q	
+Start with ! to invoke a Unix shell cmd
+sh350% mkdisk D1
+cmd [mkdisk D1]
+simDisk b50030 = new SimDisk(D1, 128, 512)
+mkSimDisk() == 11862064
+sh350% mks fs D1
+cmd [mkfs D1]
+makefs(20, 3) == 0xb50050x
+sh350% text    inode 1
+cmd [inode 1]
+inode #1 == [ 0:4 1:0 size=13]
+sh350% inode 5
+cmd [inode 5]
+inode #5 == [ 0:0 1:0 size=0]
+sh350% inode 4
+cmd [inode 4]
+inode #4 == [ 0:0 1:0 size=0]
+sh350% crfile test1
+cmd [crfile test1]
+sh350% crfile !@#!!@#
+cmd [crfile !@#!!@#]
+
+Invalid File name, try again...
+sh350% i crfile 123213
+cmd [crfile 123213]
+
+Invalid File name, try again...
+sh350% crfile test123213123
+cmd [crfile test123213123]
+
+Enter a shorter file name, try again...
+sh350% crfile test2
+cmd [crfile test2]
+sh350% findfs D1
+cmd [findfs D1]
+findfs() == 0xb50050x
+sh350% fddisk D! 1
+cmd [fddisk D1]
+simDisk b50030 = new SimDisk(D1, 128, 512)
+mkSimDisk() == 11862064
+sh350% q
+cmd [q]
+]0;hrishi@hrishi: ~/work/mtech/OperatingSystemsLab/Latest/project/ver2/P1hrishi@hrishi:~/work/mtech/OperatingSystemsLab/Latest/project/ver2/P1$ exit
+exit
+
+Script done on Wednesday 07 December 2016 10:53:28 PM IST
