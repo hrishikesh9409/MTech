@@ -1,0 +1,31 @@
+Diagrammatically represent how the hex characters “DEADBEEF” will be
+represented in Big Endian and Little Endian formats.
+
+ANS:
+
+Little-endian : 
+Little-endian representation signifies that the machine stores the least significant byte on the lowest memory address (the word is stored little-end-first).
+
+E.g., if the 32 bit value $deadbeef is stored on memory address $0000 on a little-endian machine, the following bytes will occupy the memory positions:
+
+Address	Value 
+$0000	$ef 
+$0001	$be 
+$0002	$ad 
+$0003	$de 
+
+Examples for little-endian machines are IA32 and compatible microprocessors and Alpha processors.
+
+Big-endian : 
+Big-endian representation signifies that the machines stores the most significant byte on the lowest memory address (the word is stored big-end-first).
+
+E.g., if the 32 bit value $deadbeef is stored on memory address $0000 on a big-endian machine, the following bytes will occupy the memory positions:
+
+Address	Value 
+$0000	$de 
+$0001	$ad 
+$0002	$be 
+$0003	$ef 
+
+Examples for big-endian machines are the Sparc and Motorola m68k CPU families and most RISC processors. Big-endian byte order is also used in the Internet protocols.
+

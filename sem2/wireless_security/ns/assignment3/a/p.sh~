@@ -1,0 +1,8 @@
+gnuplot -persist <<-EOFMarker
+    set title "NS 2 - Assignment 3 Question 1 : Latency vs Malicious Nodes" font ",14" textcolor rgbcolor "royalblue"
+    set timefmt "%y/%m/%d"
+    set xlabel "Number of Malicious Nodes"
+    set ylabel "Latency (in ms) "
+    set pointsize 1
+    plot "final.dat" using 1:2 with lines
+EOFMarker

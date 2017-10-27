@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+service PatternGenTest {
+    rpc GetChallenge(ChallengeRequest) returns (ChallengeResponse) {}
+}
+
+// Challenge request message with solution to previous solution
+// Use this to send solution and request a new challenge in your client
+message ChallengeRequest {
+    string solution = 1;
+}
+
+// Challenge message containing a new challenge
+// Encapsulated within ChallengeResponse
+message Challenge {
+    string start = 2;
+    string end = 3;
+    int32 step = 4;
+}
+
+// Welcome message sent by server on 1st request
+// Encapsulated within ChallengeResponse
+message Welcome {
+    string banner = 1;
+    int32 trial_count = 2;
+}
+
+// Response message sent by server when client requests a new challenge
+// This is sent to your client by the server as response to your ChallengeRequest
+message ChallengeResponse {
+    bool correct = 1;
+    oneof response_oneof {
+        string status_msg = 2;
+        Challenge challenge = 3;
+    }
+    Welcome welcome = 4;
+}

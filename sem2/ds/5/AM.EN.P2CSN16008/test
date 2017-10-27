@@ -1,0 +1,16 @@
+    public static final class IPMap extends Mapper<LongWritable, Text, Text, IntWritable> 
+    {
+        private final Text mapKey = new Text();
+
+        public final void map(final LongWritable key, final Text value, final Context context) throws IOException, InterruptedException 
+        {
+            final String line = value.toString();
+            final String[] data = line.trim().split("- -");
+            if (data.length > 1) 
+            {
+                final String ipAddress = data[0];
+                mapKey.set(ipAddress);
+                context.write(mapKey, ONE);
+            }
+        }
+    }

@@ -1,0 +1,4 @@
+break /home/hrishi/work/mtech/sem2/netsec/4/assignment/bo.c:12
+break /home/hrishi/work/mtech/sem2/netsec/4/assignment/bo.c:17
+break *0x080484f4
+

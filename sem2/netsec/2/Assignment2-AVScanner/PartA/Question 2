@@ -1,0 +1,18 @@
+What is Elf format?
+ANS:
+	The Executable and Linkable Format (ELF, formerly called Extensible Linking Format) is a common standard file format for executables, object code, shared libraries, and core dumps. ELF is flexible and extensible by design, and it is not bound to any particular processor or architecture. This has allowed it to be adopted by many different operating systems on many different platforms.
+
+	Each ELF file is made up of one ELF header, followed by file data. The file data can include:
+
+	Program header table, describing zero or more segments
+	Section header table, describing zero or more sections
+	Data referred to by entries in the program header table or section header table
+
+	The segments contain information that is necessary for runtime execution of the file, while sections contain important data for linking and relocation. Any byte in the entire file can be owned by at most one section, and there can be orphan bytes which are not owned by any section.
+
+	An elf file contains the bin information but it is surrounded by lots of other information, possible debug info, symbols, can distinguish code from data within the binary. Allows for more than one chunk of binary data (when you dump one of these to a bin you get one big bin file with fill data to pad it to the next block). Tells you how much binary you have and how much bss data is there that wants to be initialised to zeros (gnu tools have problems creating bin files correctly).
+
+What is a hexdump?
+ANS:
+	A “hex dump” is a representation of a binary data stream where the contents of that stream are displayed as hexadecimal values.
+	A typical hex dump representation divides the binary data into 8-bit bytes and displays the value of each byte as a two-digit, zero-padded hexadecimal number (ranging from 00 to FF.)

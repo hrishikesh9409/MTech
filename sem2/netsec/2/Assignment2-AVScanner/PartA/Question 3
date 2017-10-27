@@ -1,0 +1,10 @@
+What kind of information is stored in a hexdump?
+ANS:
+	Hex dumps could contain the following kinds of data although not limited to these. These are just to name a few :
+
+	> a file read from a disk device
+	> raw bytes read from a disk device (displaying the partitioning or filesystem structures)
+	> something captured from a serial line
+	> something captured from a network device (IP packets, Ethernet frames)
+	> a memory dump
+	> data captured from some communications bus (USB, I2C etc.)

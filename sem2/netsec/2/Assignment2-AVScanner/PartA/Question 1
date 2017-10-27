@@ -1,0 +1,17 @@
+What is the difference between a binary file and a text file?
+ANS:
+	> Text files follow some simple rules regarding their content, whereas binary files do not.
+
+	> Both are fundamentally just a stream of bytes.  
+
+	> However, with a binary file you have no concept of "records" - neither repeating fix-length data records, nor a stream of data that follows agreed-upon rules/restrictions for data ranges/values which then permit us to implement variable-sided records (more on this below).
+
+	> Binary files are chock full of bytes that have values ranging all the way from 0...255.   There are no guarantees with respect to the data following any easily-predictable rules.
+
+	> A text file is meant to be readable and understandable by humans.  This used to mean good old ASCII, but now includes other human-language character sets as well.  It even includes things like HTML or XML, which are often human-readable by a very generous definition.  You can still open them in a text editor, they'll display sensibly, and you can see something reasonably meaningful.
+
+	> In contrast with text files, binary-format files contain bytes that aren't intended to map to human-interesting characters.  The bytes in them are intended to be used by computer programs.
+
+	> One important class of binary files is program executables, which have a specific format that can be "read" by the program loader when the program starts up, and contain machine-language instructions that are executed to run the program.
+
+	> A second type of binary-format files includes those that are intended to be accessed using an application, such as MS Word or Adobe Acrobat, or possibly by a family of applications that understand a standard binary format, such as sound or movie players.

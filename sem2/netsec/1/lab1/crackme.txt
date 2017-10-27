@@ -1,0 +1,39 @@
+root:!:0:0:root:/root:/bin/bash
+daemon:*:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:*:2:2:bin:/bin:/usr/sbin/nologin
+sys:*:3:3:sys:/dev:/usr/sbin/nologin
+sync:*:4:65534:sync:/bin:/bin/sync
+games:*:5:60:games:/usr/games:/usr/sbin/nologin
+man:*:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:*:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:*:8:8:mail:/var/mail:/usr/sbin/nologin
+news:*:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:*:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:*:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:*:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:*:34:34:backup:/var/backups:/usr/sbin/nologin
+list:*:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:*:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:*:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:*:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+libuuid:!:100:101::/var/lib/libuuid:
+syslog:*:101:104::/home/syslog:/bin/false
+messagebus:*:102:106::/var/run/dbus:/bin/false
+usbmux:*:103:46:usbmux daemon,,,:/home/usbmux:/bin/false
+dnsmasq:*:104:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+avahi-autoipd:*:105:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+kernoops:*:106:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+rtkit:*:107:114:RealtimeKit,,,:/proc:/bin/false
+saned:*:108:115::/home/saned:/bin/false
+whoopsie:*:109:116::/nonexistent:/bin/false
+speech-dispatcher:!:110:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/sh
+avahi:*:111:117:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+lightdm:*:112:118:Light Display Manager:/var/lib/lightdm:/bin/false
+colord:*:113:121:colord colour management daemon,,,:/var/lib/colord:/bin/false
+hplip:*:114:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+pulse:*:115:122:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+hrishi:$6$ZoK.7.AZ$l737ecMgXM0UsbZlXjk0oEw8H6a8wLN.8p18S1vt3mW2yMkfav1Hc0qbSqiqlN6eCKqjcNIPI7ZZb.upQNJ0I1:1000:1000:Hrishikesh,,,:/home/hrishi:/bin/bash
+test:$6$UE.rSnDa$2FHOFonFiXeThpcYAf/s3CB/tYc2bwNfrLOerhkA0WXL.4RvSZnF4hpvc9P/wB36Orh6RpSeOurKXawyzwHqg0:1001:1001:test,1,2,3,4:/home/test:/bin/bash
+mysql:!:116:125:MySQL Server,,,:/nonexistent:/bin/false
+tomcat7:*:117:126::/usr/share/tomcat7:/bin/false
+john:$6$Ekmj0qxI$43bERFqtko03pV.1cmK1Jr74EvL7h057gR.K1s3g8V6.HoYznwPTqxTiYF4HqXuR6BQADulzs8GK8A/hXsVh4/:1002:1002::/home/john:

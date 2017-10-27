@@ -1,0 +1,2 @@
+break /home/hrishi/work/mtech/sem2/netsec/labexam_material/test/vuln.c:9
+

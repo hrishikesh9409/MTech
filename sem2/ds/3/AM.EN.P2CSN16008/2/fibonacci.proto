@@ -1,0 +1,14 @@
+syntax = "proto3";
+package Fibonacci;
+
+service FibonacciComputer{
+	rpc GetNthFibonacciNumber(FibRequest) returns (FibResponse) {}
+}
+
+message FibRequest{
+	int64 number = 1;
+}
+
+message FibResponse {
+	string number = 1;
+}

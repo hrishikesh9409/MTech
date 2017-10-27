@@ -1,0 +1,14 @@
+The solution to the buffer overflow assignment is given in the try.py file. 
+
+The password is : 0000000000
+
+The "output.png" is the output screenshot of the program
+The executable file is named as "bo"
+The disassembly of the main is given as a screenshot, : "disass_main.png"
+The "try.py" contains python code which was redirected to "data" and it used to overwrite addresses while executing bo.
+
+The command to run the program is as follows : 
+
+	1. make
+	2. python try.py > data
+	3. ./bo < data 

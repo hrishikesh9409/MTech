@@ -1,0 +1,3 @@
+break /home/hrishi/work/mtech/sem2/netsec/5/shellcode2/vuln.c:8
+break /home/hrishi/work/mtech/sem2/netsec/5/shellcode2/vuln.c:9
+

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+malicious=2
+nodes=50
+seed=5
+k=1
+
+echo -n > data.temp
+echo -n > data2.temp
+echo -n > data3.temp
+echo -n > plot.dat
+echo -n > plot2.dat
+echo -n > plot3.dat
+echo -n > numbers.dat
+echo -n > final.dat
+
+for (( i = 1; i <= 20; i++ ))      ### Outer for loop ###
+do
+	echo "$i"
+	ns a.tcl $nodes $malicious $seed
+	awk -f delay.awk trace.tr >> data.temp
+    seed=$((seed + 5))
+    awk '{ print $2}' data.temp >> data2.temp 
+    awk '{ print $1}' data.temp >> data3.temp
+    echo "$malicious" >> numbers.dat
+    echo "$k" >> plot2.dat
+    python AVG.py >> plot.dat
+
+    echo -n > data.temp
+    #echo -n > data2.temp
+    #echo -n > data3.temp
+    malicious=$((malicious + 2))
+    ((k++))
+	echo "" #### print the new line ###
+done
+
+paste numbers.dat plot.dat >> final.dat 
+
+echo "ALL DONE!!"
+
+gnuplot -persist <<-EOFMarker
+    set title "NS 2 - Assignment 3 Question 1 : Latency vs Malicious Nodes" font ",14" textcolor rgbcolor "royalblue"
+    set timefmt "%y/%m/%d"
+    set xlabel "Number of Malicious Nodes"
+    set ylabel "Latency (in ms) "
+    set pointsize 1
+    plot "final.dat" using 1:2 with lines
+EOFMarker

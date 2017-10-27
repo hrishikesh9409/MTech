@@ -1,0 +1,4 @@
+Changes:
+
+	line 513:
+		Instead of squaring the cw_ value, a random value greater than 1023 is taken and added to the previour cw_ value.
